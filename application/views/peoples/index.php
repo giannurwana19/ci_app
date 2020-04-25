@@ -1,8 +1,22 @@
 <div class="container">
-  <div class="row mt-3">
-    <div class="col-md-10">
+  <h3>list of peoples</h3>
 
-      <h3>list of peoples</h3>
+  <div class="row">
+    <div class="col-md-5 mt-3">
+      <form action="<?= base_url('peoples') ?>" method="POST">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Search keyword" autocomplete="off" autofocus name="keyword">
+          <div class="input-group-append">
+            <input class="btn btn-success" type="submit" name="submit">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md">
+      <h5>Result : <?= $total_rows; ?></h5>
       <table class="table">
         <thead>
           <tr>
@@ -13,6 +27,15 @@
           </tr>
         </thead>
         <tbody>
+          <?php if(empty($peoples)) : ?>
+            <tr>
+              <td colspan="4">
+                <div class="alert alert-danger text-center" role="alert">
+                  <strong>Data not found</strong>
+                </div>
+              </td>
+            </tr>
+          <?php endif; ?>
           <!-- ++$start = tambah satu dulu, baru tampilkan -->
           <?php $no = 1; ?>
           <?php foreach ($peoples as $p) : ?>
