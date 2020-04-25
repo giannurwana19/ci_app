@@ -1,5 +1,5 @@
 <div class="container">
-  <h3>list of peoples</h3>
+  <h3 class="mt-3">list of peoples</h3>
 
   <div class="row">
     <div class="col-md-5 mt-3">
